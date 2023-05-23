@@ -5,6 +5,7 @@ const Schema = mongoose.Schema
 const jobSchema = new mongoose.Schema({
     jobTitle: String,
     company: String,
+    notes: String,
     completed: Boolean,
 }, 
     {   

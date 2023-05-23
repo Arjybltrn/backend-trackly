@@ -4,15 +4,14 @@ const jobsRouter = express.Router()
 const Jobs = require('../models/jobs.js')
 
 // String Connection
-// mongoose.connect(MONGODB_URL, {
-//     useUnifiedTopology: true,
-//     useNewUrlParser: true,
-// })
+mongoose.connect(process.env.MONGODB_URL, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+})
 
 // Middleware
 // Body parser middleware: give us access to req.body
 jobsRouter.use(express.urlencoded({ extended: false }));
-
 
 
 // Index
@@ -20,8 +19,7 @@ jobsRouter.get("/", async (req, res) => {
     try {
        
         res.json(await Jobs.find({}))
-    } catch (error) {
-        
+    } catch (error) {      
         res.status(400).json(error)
     }
 })
@@ -34,6 +32,7 @@ jobsRouter.post("/", async (req, res) => {
         res.status(400).json(error);
     }
 })
+
 
 // Delete
 jobsRouter.delete("/:id", async (req, res) => {

@@ -1,6 +1,3 @@
-
-// DEPENDENCIES
-
 // get .env variables
 require("dotenv").config()
 
@@ -36,16 +33,13 @@ app.use(express.urlencoded({ extended: false }))
 // Routes / Controllers
 
 const jobsController = require('./controllers/jobs')
+const Jobs = require("./models/jobs")
 app.use('/jobs', jobsController)
 
 // test route
 app.get("/", (req, res) => {
     res.send("hi")
 });
-
-
-
-
 
 
 // LISTENER
