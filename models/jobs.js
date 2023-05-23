@@ -6,6 +6,7 @@ const jobSchema = new mongoose.Schema({
     jobTitle: String,
     company: String,
     notes: String,
+    salary: Number,
     completed: Boolean,
 }, 
     {   
